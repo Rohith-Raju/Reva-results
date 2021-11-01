@@ -5,10 +5,10 @@ from flask import Flask
 
 url = "http://results.logisys.org//reva//app.php?a=DisplayStudentResult"  
 
-session = requests.session()
 
 
-sem ={
+
+sem ={                
         "First":"A",
         "Second":"B",
         "Third":"C",
@@ -40,7 +40,7 @@ def get_results(payload):
                 res['Name'] = name
                 res['Results'] = {}
 
-                for i in tree.xpath('.//table[@id="results_subject_table"]/tr')[0]: 
+                for i in tree.xpath('.//table[@id="results_subject_table"]/tr')[0]: #xpath
                     subarray =  i.xpath('.//td[2]/text()')
                     marks = i.xpath('.//td[6]/text()')
                 for i in range(1,len(subarray)-1):
@@ -89,4 +89,6 @@ def printResults(Srn,Sem):
                         "Message":" You have entred Sem: "+Sem+" which is invalid" 
                         }
         
-application.run()
+
+if __name__ == "__main__":
+    application.run(port=5000, debug=True)
