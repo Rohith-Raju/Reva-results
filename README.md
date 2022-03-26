@@ -2,7 +2,7 @@
 Reva-results is a python script that scrapes the Reva result website and displays the result of the student as its output.
 
 ## Getting started
-#### Libraries that need to be installed
+### Libraries that need to be installed
 Use pip to install for ex: pip install requests 
 1) requests
 2) lxml
