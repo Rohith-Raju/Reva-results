@@ -5,8 +5,7 @@ from flask import Flask
 
 url = "http://results.logisys.org//reva//app.php?a=DisplayStudentResult"  
 
-
-
+session = requests.session()
 
 sem ={                
         "First":"A",
@@ -23,8 +22,12 @@ sem ={
 
 
 
+
+
+
 def get_results(payload):
         response = session.post(url,data=payload,stream=True)
+        print(response.raw)
         response.raw.decode_content = True
         tree = lxml.html.parse(response.raw)
         sliceConstructor = slice(12,20)
@@ -53,7 +56,7 @@ def get_results(payload):
                 return {
                         "Code":400,
                         "Status":"Error",
-                        "Error":"No record found or invalid input. Ex getresults/r19cs261/Fourth "
+                        "Error":"No record found or invalid input. Ex results/r19cs261/Fourth "
 
                 }
 
@@ -89,6 +92,13 @@ def printResults(Srn,Sem):
                         "Message":" You have entred Sem: "+Sem+" which is invalid" 
                         }
         
+
+@application.route('/results/range/<from>/<to>')
+def range():
+        print("hello")
+
+
+
 
 if __name__ == "__main__":
     application.run(port=5000, debug=True)
