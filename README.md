@@ -8,7 +8,7 @@ Use pip to install for ex: pip install requests
 2) lxml
 
 ### Running the script
-You can run the script by typing ```python3 script.py``` in your command line and provide the following inputs:
+You can run the script by typing ```python script.py``` in your command line and provide the following inputs:
 1) Srn
 2) Semister
 ```
