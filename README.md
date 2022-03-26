@@ -3,8 +3,8 @@ Reva-results is a python script that scrapes the Reva result website and display
 
 ## Getting started
 #### Libraries that need to be installed
-1) Requests
-2) Beautiful Soup
+1) requests
+2) lxml
 
 #### Running the script
 Clone the respository and make sure python is installed.Then when you run the script,the follwing data is given as input:
